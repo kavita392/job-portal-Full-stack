@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "server": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "update-browserslist": "npx update-browserslist-db@latest"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +24,10 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.3",
     "multer": "^1.4.5-lts.1",
-    "nodemon": "^3.1.7",
+
     "svix": "^1.42.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
