@@ -58,10 +58,12 @@ export const loginCompany = async (req, res) => {
     const { email, password } = req.body
 
     try {
-
+console.log(email,password)
         const company = await Company.findOne({ email })
+        console.log(company)
 
         if (await bcrypt.compare(password, company.password)) {
+            
 
             res.json({
                 success: true,
@@ -72,6 +74,7 @@ export const loginCompany = async (req, res) => {
                     image: company.image
                 },
                 token: generateToken(company._id)
+                
             })
 
         }

@@ -23,6 +23,7 @@ const RecruiterLogin = () => {
 
     const { setShowRecruiterLogin, backendUrl, setCompanyToken, setCompanyData } = useContext(AppContext)
 
+
     const onSubmitHandler = async (e) => {
         e.preventDefault()
 
@@ -32,11 +33,11 @@ const RecruiterLogin = () => {
 
         try {
 
-
+console.log(email,password)
 
             if (state === "Login") {
                 const { data } = await axios.post(
-                    `${backendUrl}api/company/login`,
+                    `http://localhost:5000/api/company/login`,
                     { email, password },
                     {
                         headers: { 'Content-Type': 'application/json' },
@@ -63,9 +64,7 @@ const RecruiterLogin = () => {
                 formData.append('email', email)
                 formData.append('image', image)
 
-                const { data } = await axios.post(
-                    `${backendUrl}api/company/register`,
-                    formData,
+                const { data } = await axios.post(`http://localhost:5000/api/company/register`,{ formData},
                     {
                         headers: { 'Content-Type': 'multipart/form-data' },
                         withCredentials: true // optional
